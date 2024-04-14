@@ -3,7 +3,7 @@
 
 ### Frontend Deployed Link <https://coin-tab-assignment-mu.vercel.app/>
 
-### Backend Deployed Link <https://coin-tab.onrender.com>
+### Backend Deployed Link <https://coin-tab-assignment.onrender.com>
 
 # Coin-Tab Assignment
 
