@@ -1,7 +1,7 @@
-### Backend DEMO <https://drive.google.com/file/d/1zu0gzYqkJRT-oVRHEqIMMwTpVTGPJVCp/view?usp=sharing>
 ### Frontend DEMO <https://drive.google.com/file/d/1cbPa_SEfMgu6zi_wkqVWaQ4ciXF5ypZH/view?usp=sharing>
+### Backend DEMO <https://drive.google.com/file/d/1zu0gzYqkJRT-oVRHEqIMMwTpVTGPJVCp/view?usp=sharing>
 
-### Frontend Deployed Link <https://coin-tab-five.vercel.app/>
+### Frontend Deployed Link <https://coin-tab-assignment-mu.vercel.app/>
 
 ### Backend Deployed Link <https://coin-tab.onrender.com>
 
@@ -85,5 +85,5 @@ To get started with the API, follow the instructions below.
 
 ## Author
 
-- [Rantu Bangal](https://github.com/RantuBangal)
-  - Email: rantubangal996@gmail.com
+- [Saurabh Ganguly](https://github.com/Saurabh8657)
+  - Email: saurabhganguly38@gmail.com

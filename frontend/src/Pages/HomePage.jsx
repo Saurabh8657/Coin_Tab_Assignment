@@ -18,7 +18,7 @@ export default function HomePage() {
 
   const fetchFuncFromSQLDB = () => {
     axios
-      .get(`http://localhost:8080/users`)
+      .get(`https://coin-tab-assignment.onrender.com/users`)
       .then((res) => {
         console.log("Aiven Response : " + res)
         const usersMap = res.data.Users.reduce((map, user) => {

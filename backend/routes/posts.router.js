@@ -11,11 +11,11 @@ postRouter.post("/add", userAttacher, (req, res) => {
         const { id, name, title, body, company, userId } = req.body;
         const query = `INSERT INTO posts (id, name, title, body, company, userId) VALUES (?, ?, ?, ?, ?, ?)`
         db.query(query, [id, name, title, body, company, userId], (err, result) => {
-            if (err) res.status(400).json({"Error inserting user": err})
+            if (err) res.status(400).json({"Error while adding new user": err})
             else res.status(200).json({"Added all Posts": result})
         } )
     } catch (error) {
-        console.error("Error inserting posts:", error);
+        console.error("Internal Server Error", error);
         res.status(500).json({message: error})
     }
 })
@@ -28,11 +28,11 @@ postRouter.get("/:userId", (req, res) => {
             if (err) {
                 res.status(400).json({"Error Getting Posts for user": err})
             }
-            else res.status(200).json({"Posts": result})
+            else res.status(200).json({"All Posts": result})
         } )
     } catch (error) {
-        console.error("Error getting posts:", error);
-        res.status(500).json({message: error})
+        console.error("Error getting posts for user:", error);
+        res.status(500).json({"Internal Server Error": error})
     }
 })
 
