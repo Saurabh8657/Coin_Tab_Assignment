@@ -49,7 +49,7 @@ export default function PostsPage() {
   };
   const handleDownloadExelFile = (e) => {
     e.preventDefault();
-    axios.get(`http://localhost:8080/excel/${id}`, { responseType: 'blob' }) // Set responseType to 'blob'
+    axios.get(`http://localhost:8080/posts/excel/${id}`, { responseType: 'blob' }) // Set responseType to 'blob'
       .then(res => {
         const url = window.URL.createObjectURL(new Blob([res.data])); // Create blob from response data
         const link = document.createElement('a');
@@ -59,7 +59,7 @@ export default function PostsPage() {
         link.click();
       })
       .catch(err => console.log(err))
-    }
+  }
 
   useEffect(() => {
     fetchFunc();
@@ -68,12 +68,14 @@ export default function PostsPage() {
   }, []);
   return (
     <>
-    <h2>All Posts of user {id}</h2>
+    <h2>All Posts of :- {currUser?.name}</h2>
+    <h2>Company :- {currUser?.company}</h2>
+    {/* <h2>All Posts of {currUser?.name}</h2> */}
     {
-      bulkAddButton && <button onClick={(e)=> handleAddToDB(e)}>Bulk Add</button>
+      bulkAddButton && <button onClick={(e)=> handleAddToDB(e)} className="btn btn-primary">Bulk Add</button>
     }
     {
-      !bulkAddButton && <button onClick={(e)=> handleDownloadExelFile(e)}>Download in Excel Format</button>
+      !bulkAddButton && <button onClick={(e)=> handleDownloadExelFile(e)} className="btn btn-success">Download in Excel Format</button>
     }
     <div className="d-flex justify-content-around flex-wrap gap-3 px-5 mt-5 mb-5">
       {

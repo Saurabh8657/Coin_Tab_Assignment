@@ -1,23 +1,25 @@
 const mysql = require("mysql");
+const mysql2 = require("mysql2");
+require("dotenv").config();
 
-// const db = mysql.createConnection({
-//     host: 'mysql-14fb0413-cointab-assignment.b.aivencloud.com',
-//     user:'avnadmin',
-//     password:'AVNS_AaxFhIv2TcTb6LxpfIv',
-//     database: 'CoinTabAssignment'
-// })
-const db = mysql.createConnection({
-    host: 'localhost',
-    user:'root',
-    password:'root123',
-    database: 'CoinTabAssignment'
+const db = mysql2.createConnection({
+    host: process.env.host,
+    user: process.env.user,
+    password: process.env.password,
+    database:  process.env.database,
+    port: process.env.port
 })
 
-db.connect((err)=>{
-    if(err) console.log(`error connecting ${err}`);
-    else console.log(`Connected to DB`)
-})
+db.connect((err) => {
+    if (err) {
+        console.error(`Error connecting: ${err}`);
+        process.exit(1); // Terminate the process with an error code
+    }
+    console.log(`Connected to DB`);
+});
+
 
 module.exports = {
     db,
-}
+};
+

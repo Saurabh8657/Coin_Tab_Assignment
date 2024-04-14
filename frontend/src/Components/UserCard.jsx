@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function UserCard({ item, addButton }) {
-  const [ Button, setButton ] = useState(addButton);
+  const [Button, setButton] = useState(addButton);
   const navigate = useNavigate();
   const handleNavigate = () => {
     navigate(`/posts/${item.id}`);
@@ -17,7 +17,7 @@ export default function UserCard({ item, addButton }) {
       phone: item.phone,
       website: item.website,
       company: item.company.name,
-      city: item.address.city
+      city: item.address.city,
     };
     axios
       .post(`http://localhost:8080/users/add`, obj)
@@ -25,29 +25,48 @@ export default function UserCard({ item, addButton }) {
       .catch((err) => console.log(err));
   };
   return (
-    <div style={{ width: "300px" }} className="border border-primary-subtle">
+    <div
+      style={{
+        width: "300px",
+        backgroundColor: "rgba(13,110,253,0.2)",
+        transition: "transform 0.3s ease-in-out",
+        ":hover": {
+          backgroundColor: "rgba(255, 255, 255, 0.2)",
+          transform: "scale(1.05)",
+        },
+      }}
+      className="border border-primary p-3 mb-3 rounded text-start px-4"
+    >
       <p>
-        <b>Name</b> {item.name}
+        <b className="text-primary">Name</b> {item.name}
       </p>
       <p>
-        <b>Email:</b> {item.email}
+        <b className="text-primary">Email:</b> {item.email}
       </p>
       <p>
-        <b>Phone</b> {item.phone}
+        <b className="text-primary">Phone</b> {item.phone}
       </p>
 
       <p>
-        <b>Website:</b> {item.website}
+        <b className="text-primary">Website:</b> {item.website}
       </p>
       <p>
-        <b>city:</b> {item.address.city}
+        <b className="text-primary">City:</b> {item.address.city}
       </p>
       <p>
-        <b>Company:</b> {item.company.name}
+        <b className="text-primary">Company:</b> {item.company.name}
       </p>
 
-      { Button && <button onClick={() => handleAddToDB(item)}>Add</button>}
-      { !Button && <button onClick={() => handleNavigate()}>Open</button>}
+      {Button && (
+        <button onClick={() => handleAddToDB(item)} className="btn btn-primary">
+          Add
+        </button>
+      )}
+      {!Button && (
+        <button onClick={() => handleNavigate()} className="btn btn-success">
+          Open
+        </button>
+      )}
     </div>
   );
 }

@@ -8,7 +8,6 @@ export default function Navbar() {
         <div className='d-flex justify-content-around vw-100 p-3 bg-primary'>
             <h2 className='text-white text-decoration-none fs-2'>Saurabh_Ganguly</h2>
             <Link to="/" className='text-white text-decoration-none fs-2'>Home Page</Link>
-            <Link to="/posts/:id" className='text-white text-decoration-none fs-2'>User Posts</Link>
         </div>
     </div>
   )
